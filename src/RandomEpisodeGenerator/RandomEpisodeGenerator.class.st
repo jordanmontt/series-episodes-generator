@@ -62,7 +62,7 @@ RandomEpisodeGenerator >> loadEpisodes [
 RandomEpisodeGenerator >> readToCollectionCsvWithEpisodes [
 
 	| csvFile |
-	csvFile := '.' asFileReference / 'pharo-local' / 'iceberg'
+	csvFile := '.' asFileReference / 'pharo-local' / 'iceberg' / 'jordanmontt'
 		/ 'series-episodes-generator' / 'data' / self csvFileName.
 	^ (NeoCSVReader on: csvFile readStream) skipHeader upToEnd
 ]
