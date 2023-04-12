@@ -14,6 +14,8 @@ RandomEpisodeGenerator >> generate [
 
 	| randomEpisode |
 	randomEpisode := episodes at: (self getRandomEpisodeNumber).
+	seasonThreshold ifNil: [ ^ randomEpisode ].
+	
 	[ randomEpisode season > seasonThreshold ] whileTrue: [
 		randomEpisode := episodes at: (self getRandomEpisodeNumber) ].
 
@@ -40,7 +42,7 @@ RandomEpisodeGenerator >> loadEpisodes [
 	self subclassResponsibility
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #api }
 RandomEpisodeGenerator >> upToSeason: anInteger [
 
 	seasonThreshold := anInteger

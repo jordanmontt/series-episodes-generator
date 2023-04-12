@@ -1,11 +1,7 @@
 Class {
 	#name : #SimpsonsEpisode,
-	#superclass : #Object,
+	#superclass : #RandomEpisode,
 	#instVars : [
-		'season',
-		'episode',
-		'title',
-		'numberInSerie',
 		'originalAirDate'
 	],
 	#category : #Simpsons
@@ -20,28 +16,11 @@ SimpsonsEpisode class >> season: s episode: e [
 		yourself
 ]
 
-{ #category : #accessing }
-SimpsonsEpisode >> episode [
+{ #category : #inspector }
+SimpsonsEpisode >> inspectorTableRows [
 
-	^ episode
-]
-
-{ #category : #accessing }
-SimpsonsEpisode >> episode: anObject [
-
-	episode := anObject
-]
-
-{ #category : #accessing }
-SimpsonsEpisode >> numberInSerie [
-
-	^ numberInSerie
-]
-
-{ #category : #accessing }
-SimpsonsEpisode >> numberInSerie: anObject [
-
-	numberInSerie := anObject
+	^ super inspectorTableRows
+	  , { ('Original air date' -> originalAirDate) }
 ]
 
 { #category : #accessing }
@@ -60,28 +39,4 @@ SimpsonsEpisode >> originalAirDate: anObject [
 SimpsonsEpisode >> printOn: aStream [ 
 
 	aStream << 'The Simpsons season ' << season asString << ' episode ' << episode asString
-]
-
-{ #category : #accessing }
-SimpsonsEpisode >> season [
-
-	^ season
-]
-
-{ #category : #accessing }
-SimpsonsEpisode >> season: anObject [
-
-	season := anObject
-]
-
-{ #category : #accessing }
-SimpsonsEpisode >> title [
-
-	^ title
-]
-
-{ #category : #accessing }
-SimpsonsEpisode >> title: anObject [
-
-	title := anObject
 ]
