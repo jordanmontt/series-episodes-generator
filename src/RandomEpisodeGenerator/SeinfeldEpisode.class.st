@@ -5,7 +5,7 @@ Class {
 		'directedBy',
 		'writtenBy'
 	],
-	#category : #Simpsons
+	#category : #RandomEpisodeGenerator
 }
 
 { #category : #accessing }

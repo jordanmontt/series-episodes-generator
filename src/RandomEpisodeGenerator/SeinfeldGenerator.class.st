@@ -1,7 +1,7 @@
 Class {
 	#name : #SeinfeldGenerator,
 	#superclass : #RandomEpisodeGenerator,
-	#category : #Simpsons
+	#category : #RandomEpisodeGenerator
 }
 
 { #category : #private }

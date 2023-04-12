@@ -7,7 +7,7 @@ Class {
 		'season',
 		'title'
 	],
-	#category : #Simpsons
+	#category : #RandomEpisodeGenerator
 }
 
 { #category : #accessing }

@@ -6,7 +6,7 @@ Class {
 		'episodes',
 		'seasonThreshold'
 	],
-	#category : #Simpsons
+	#category : #RandomEpisodeGenerator
 }
 
 { #category : #api }

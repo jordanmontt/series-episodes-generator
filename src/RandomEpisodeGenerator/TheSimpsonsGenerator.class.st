@@ -1,7 +1,7 @@
 Class {
 	#name : #TheSimpsonsGenerator,
 	#superclass : #RandomEpisodeGenerator,
-	#category : #Simpsons
+	#category : #RandomEpisodeGenerator
 }
 
 { #category : #'as yet unclassified' }

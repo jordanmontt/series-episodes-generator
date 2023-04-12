@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'originalAirDate'
 	],
-	#category : #Simpsons
+	#category : #RandomEpisodeGenerator
 }
 
 { #category : #'as yet unclassified' }
