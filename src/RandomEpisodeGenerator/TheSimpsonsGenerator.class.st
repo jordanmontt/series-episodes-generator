@@ -10,6 +10,12 @@ TheSimpsonsGenerator class >> defaultUpToSeason [
 	^ 11
 ]
 
+{ #category : #private }
+TheSimpsonsGenerator >> csvFileName [
+
+	^ 'simpsons_episodes.csv'
+]
+
 { #category : #initialization }
 TheSimpsonsGenerator >> initialize [
 
@@ -18,19 +24,13 @@ TheSimpsonsGenerator >> initialize [
 ]
 
 { #category : #private }
-TheSimpsonsGenerator >> loadEpisodes [
+TheSimpsonsGenerator >> instantiateEpisodeFromCsvData: aCollection [
 
-	| rawCollection |
-	rawCollection := (NeoCSVReader
-		on: '/Users/sebastian/Downloads/sebas_simpsons.csv' asFileReference readStream)
-			skipHeader upToEnd.
-
-	episodes := rawCollection collect: [ :e |
-		SimpsonsEpisode new
-			season: (e at: 1) asNumber;
-			episode: (e at: 2) asNumber;
-			title: (e at: 3);
-			numberInSerie: (e at: 4) asNumber;
-			originalAirDate: (e at: 5) asDate;
-			yourself ]
+	^ SimpsonsEpisode new
+			season: (aCollection at: 1) asNumber;
+			episode: (aCollection at: 2) asNumber;
+			title: (aCollection at: 3);
+			numberInSerie: (aCollection at: 4) asNumber;
+			originalAirDate: (aCollection at: 5) asDate;
+			yourself 
 ]

@@ -9,6 +9,12 @@ Class {
 	#category : #RandomEpisodeGenerator
 }
 
+{ #category : #private }
+RandomEpisodeGenerator >> csvFileName [
+
+	self subclassResponsibility
+]
+
 { #category : #api }
 RandomEpisodeGenerator >> generate [
 
@@ -37,9 +43,28 @@ RandomEpisodeGenerator >> initialize [
 ]
 
 { #category : #private }
+RandomEpisodeGenerator >> instantiateEpisodeFromCsvData: aCollection [
+
+	^ self subclassResponsibility
+]
+
+{ #category : #private }
 RandomEpisodeGenerator >> loadEpisodes [
 
-	self subclassResponsibility
+	| rawCollection |
+	rawCollection := self readToCollectionCsvWithEpisodes.
+
+	episodes := rawCollection collect: [ :e |
+		            self instantiateEpisodeFromCsvData: e ]
+]
+
+{ #category : #private }
+RandomEpisodeGenerator >> readToCollectionCsvWithEpisodes [
+
+	| csvFile |
+	csvFile := '.' asFileReference / 'pharo-local' / 'iceberg'
+		/ 'series-episodes-generator' / 'data' / self csvFileName.
+	^ (NeoCSVReader on: csvFile readStream) skipHeader upToEnd
 ]
 
 { #category : #api }

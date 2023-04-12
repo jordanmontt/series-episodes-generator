@@ -5,20 +5,20 @@ Class {
 }
 
 { #category : #private }
-SeinfeldGenerator >> loadEpisodes [
+SeinfeldGenerator >> csvFileName [
 
-	| rawCollection |
-	rawCollection := (NeoCSVReader
-		on: '/Users/sebastian/Downloads/seinfeld/seinfeld_episodes.csv' asFileReference readStream)
-			skipHeader upToEnd.
+	^ 'seinfeld_episodes.csv'
+]
 
-	episodes := rawCollection collect: [ :e |
-		SeinfeldEpisode new
-			season: (e at: 1) asNumber;
-			episode: (e at: 2) asNumber;
-			numberInSerie: (e at: 3) asNumber;
-			title: (e at: 4);
-			directedBy: (e at: 5);
-			writtenBy: (e at: 6);
-			yourself ]
+{ #category : #private }
+SeinfeldGenerator >> instantiateEpisodeFromCsvData: aCollection [
+
+	^ SeinfeldEpisode new
+		  season: (aCollection at: 1) asNumber;
+		  episode: (aCollection at: 2) asNumber;
+		  numberInSerie: (aCollection at: 3) asNumber;
+		  title: (aCollection at: 4);
+		  directedBy: (aCollection at: 5);
+		  writtenBy: (aCollection at: 6);
+		  yourself
 ]
