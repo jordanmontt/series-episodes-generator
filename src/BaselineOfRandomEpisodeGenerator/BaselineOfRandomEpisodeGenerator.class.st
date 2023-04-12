@@ -9,9 +9,10 @@ BaselineOfRandomEpisodeGenerator >> baseline: spec [
 	<baseline>
 
 	spec for: #'common' do: [
-		spec 
-			package: 'RandomEpisodeGenerator' with: [
-				spec baseline: 'NeoCSV' with: [ spec repository: 'github://svenvc/NeoCSV/repository' ] ].
+		"External dependencies"
+		spec baseline: 'NeoCSV' with: [ spec repository: 'github://svenvc/NeoCSV/repository' ].
+		"Internal dependencies"
+		spec package: 'RandomEpisodeGenerator' with: [ spec requires: #( 'NeoCSV' ) ].
 		spec 
 			group: 'Core' with: #('RandomEpisodeGenerator' ) ]
 ]
