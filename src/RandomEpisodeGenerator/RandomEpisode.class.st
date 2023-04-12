@@ -60,6 +60,12 @@ RandomEpisode >> numberInSerie: anObject [
 	numberInSerie := anObject
 ]
 
+{ #category : #printing }
+RandomEpisode >> printOn: aStream [ 
+
+	aStream << self serieName << ' season ' << season asString << ' episode ' << episode asString
+]
+
 { #category : #accessing }
 RandomEpisode >> season [
 
@@ -70,6 +76,12 @@ RandomEpisode >> season [
 RandomEpisode >> season: anObject [
 
 	season := anObject
+]
+
+{ #category : #inspector }
+RandomEpisode >> serieName [
+
+	^ self subclassResponsibility
 ]
 
 { #category : #accessing }

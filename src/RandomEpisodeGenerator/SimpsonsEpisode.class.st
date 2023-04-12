@@ -35,8 +35,8 @@ SimpsonsEpisode >> originalAirDate: anObject [
 	originalAirDate := anObject
 ]
 
-{ #category : #printing }
-SimpsonsEpisode >> printOn: aStream [ 
+{ #category : #inspector }
+SimpsonsEpisode >> serieName [
 
-	aStream << 'The Simpsons season ' << season asString << ' episode ' << episode asString
+	^ 'The Simpsons'
 ]

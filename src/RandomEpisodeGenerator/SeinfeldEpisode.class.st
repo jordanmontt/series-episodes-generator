@@ -22,6 +22,12 @@ SeinfeldEpisode >> inspectorTableRows [
 		  ('Written by' -> writtenBy) }
 ]
 
+{ #category : #inspector }
+SeinfeldEpisode >> serieName [
+
+	^ 'Seinfeld'
+]
+
 { #category : #accessing }
 SeinfeldEpisode >> writtenBy: aString [
 
